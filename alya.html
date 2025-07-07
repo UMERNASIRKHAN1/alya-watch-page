@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Cheap Stream - Watch</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body {
+      background-color: #0d0d0d;
+      color: #facc15;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+    .episode-btn {
+      background: linear-gradient(145deg, #1a1a1a, #2c2c2c);
+      color: #facc15;
+      padding: 10px 16px;
+      border: 2px solid #facc15;
+      border-radius: 10px;
+      font-weight: bold;
+      transition: all 0.3s ease-in-out;
+    }
+    .episode-btn:hover {
+      background: #facc15;
+      color: #000;
+      transform: scale(1.05);
+    }
+    .episode-btn.active {
+      background: #facc15;
+      color: #000;
+    }
+    .nav-btn {
+      background-color: #facc15;
+      color: black;
+      padding: 10px 20px;
+      font-weight: bold;
+      border-radius: 9999px;
+      transition: all 0.3s;
+    }
+    .nav-btn:hover {
+      background-color: #ffe066;
+      transform: scale(1.05);
+    }
+  </style>
+</head>
+<body class="min-h-screen flex flex-col">
+  <!-- Header -->
+  <header class="bg-black shadow-md py-4 px-6 flex justify-between items-center">
+    <h1 class="text-yellow-400 text-2xl font-bold">Cheap Stream</h1>
+    <nav class="space-x-4 text-yellow-300">
+      <a href="/storage/emulated/0/cheap stream/index.html" class="hover:text-yellow-500">Home</a>
+      <a href="/storage/emulated/0/cheap stream/about.html" class="hover:text-yellow-500">About</a>
+    </nav>
+  </header>
+
+  <!-- Main Content -->
+  <main class="flex-1 p-4 max-w-5xl mx-auto">
+    <div class="mb-4">
+      <h2 class="text-3xl font-bold">Alya Sometimes Hides Her Feelings in Russian</h2>
+      <p class="text-yellow-200 mt-1">Watch All Episodes</p>
+    </div>
+
+    <!-- Video Player -->
+    <div class="w-full aspect-video bg-black rounded-xl overflow-hidden shadow-md mb-4">
+     <video id="videoPlayer" controls crossorigin="anonymous" class="w-full h-full">
+  <source id="videoSource" src="" type="video/mp4" />
+  Your browser does not support the video tag.
+</video>
+    </div>
+
+    <!-- Navigation Buttons -->
+    <div class="flex justify-between items-center mb-6">
+      <button id="prevBtn" class="nav-btn">⏮ Previous</button>
+      <button id="nextBtn" class="nav-btn">Next ⏭</button>
+    </div>
+    <!-- Anime Info Section -->
+<div class="bg-gray-900 p-6 rounded-2xl shadow-lg text-yellow-300 max-w-4xl mx-auto mb-8">
+  <div class="flex flex-col md:flex-row items-start gap-6">
+    <!-- Anime Poster -->
+    <img src="/storage/emulated/0/cheap stream/pictures/ASTHHFIR.jpg" alt="Alya Poster" class="w-40 h-auto rounded-xl shadow-md">
+
+    <!-- Anime Details -->
+    <div>
+      <h2 class="text-3xl font-bold mb-2 text-yellow-400">Alya Sometimes Hides Her Feelings in Russian</h2>
+      <p class="mb-4 text-yellow-200 italic">アリアは時々ロシア語で自分の感情を隠す</p>
+
+           <ul class="text-sm space-y-1">
+        <li><strong>Status:</strong>Finished Airing</li>
+        <li><strong>Total Episodes:</strong> 12</li>
+        <li><strong>Genres:</strong> Romance, Comedy, School, Slice of life</li>
+        <li><strong>Studio:</strong> Doga Kobo</li>
+        <li><strong>Aired:</strong> July 3 2024</li>
+        <li><strong>Language:</strong> English Dub</li>
+        <li><strong>IMDb rating:</strong> 7.2</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+    <!-- Episode Buttons -->
+    <div id="episodeButtons" class="grid grid-cols-3 sm:grid-cols-6 gap-4 text-center"></div>
+  </main>
+ <!-- 🔥 You May Also Like -->
+<div class="bg-black text-yellow-400 py-6 px-4 max-w-6xl mx-auto">
+  <h3 class="text-2xl font-bold mb-4 border-b border-yellow-500 pb-2">🔥 You May Also Like</h3>
+  <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4">
+
+    <!-- Anime Cards -->
+    <a href="/storage/emulated/0/cheap stream/watch-page/jujutsu-kaisen.html" class="bg-gray-900 rounded-xl overflow-hidden shadow hover:scale-105 transition duration-200">
+      <img src="/storage/emulated/0/cheap stream/pictures/JJK.jpg" class="w-full h-44 object-cover">
+      <div class="p-2 text-sm text-yellow-300 font-semibold">Jujutsu Kaisen</div>
+    </a>
+
+    <a href="/storage/emulated/0/cheap stream/watch-page/your-name.html" class="bg-gray-900 rounded-xl overflow-hidden shadow hover:scale-105 transition duration-200">
+      <img src="/storage/emulated/0/cheap stream/pictures/YN.jpg" class="w-full h-44 object-cover">
+      <div class="p-2 text-sm text-yellow-300 font-semibold">Your Name</div>
+    </a>
+
+    <a href="/storage/emulated/0/cheap stream/watch-page/demon-slayer.html" class="bg-gray-900 rounded-xl overflow-hidden shadow hover:scale-105 transition duration-200">
+      <img src="/storage/emulated/0/cheap stream/pictures/DS S1.jpg" class="w-full h-44 object-cover">
+      <div class="p-2 text-sm text-yellow-300 font-semibold">Demon Slayer</div>
+    </a>
+
+    <a href="/storage/emulated/0/cheap stream/watch-page/horimiya.html" class="bg-gray-900 rounded-xl overflow-hidden shadow hover:scale-105 transition duration-200">
+      <img src="/storage/emulated/0/cheap stream/pictures/HORIMIYA.jpg" class="w-full h-44 object-cover">
+      <div class="p-2 text-sm text-yellow-300 font-semibold">Horimiya</div>
+    </a>
+
+    <a href="/storage/emulated/0/cheap stream/watch-page/tokyo-revengers.html" class="bg-gray-900 rounded-xl overflow-hidden shadow hover:scale-105 transition duration-200">
+      <img src="/storage/emulated/0/cheap stream/pictures/TR.jpg" class="w-full h-44 object-cover">
+      <div class="p-2 text-sm text-yellow-300 font-semibold">Tokyo Revengers</div>
+    </a>
+
+    <a href="/storage/emulated/0/cheap stream/watch-page/attack-on-titan.html" class="bg-gray-900 rounded-xl overflow-hidden shadow hover:scale-105 transition duration-200">
+      <img src="/storage/emulated/0/cheap stream/pictures/AOT S1.jpg" class="w-full h-44 object-cover">
+      <div class="p-2 text-sm text-yellow-300 font-semibold">Attack on Titan</div>
+    </a>
+
+    <a href="/storage/emulated/0/cheap stream/watch-page/death-note.html" class="bg-gray-900 rounded-xl overflow-hidden shadow hover:scale-105 transition duration-200">
+      <img src="/storage/emulated/0/cheap stream/pictures/DN.jpg" class="w-full h-44 object-cover">
+      <div class="p-2 text-sm text-yellow-300 font-semibold">Death Note</div>
+    </a>
+
+    <a href="/storage/emulated/0/cheap stream/watch-page/chainsaw-man.html" class="bg-gray-900 rounded-xl overflow-hidden shadow hover:scale-105 transition duration-200">
+      <img src="/storage/emulated/0/cheap stream/pictures/CSM.jpg" class="w-full h-44 object-cover">
+      <div class="p-2 text-sm text-yellow-300 font-semibold">Chainsaw Man</div>
+    </a>
+
+    <a href="/storage/emulated/0/cheap stream/watch-page/kaguya-sama.html" class="bg-gray-900 rounded-xl overflow-hidden shadow hover:scale-105 transition duration-200">
+      <img src="/storage/emulated/0/cheap stream/pictures/KSLIW.jpg" class="w-full h-44 object-cover">
+      <div class="p-2 text-sm text-yellow-300 font-semibold">Kaguya-sama: Love is War</div>
+    </a>
+
+    <a href="/storage/emulated/0/cheap stream/watch-page/naruto.html" class="bg-gray-900 rounded-xl overflow-hidden shadow hover:scale-105 transition duration-200">
+      <img src="/storage/emulated/0/cheap stream/pictures/NARUTO.jpg" class="w-full h-44 object-cover">
+      <div class="p-2 text-sm text-yellow-300 font-semibold">Naruto</div>
+    </a>
+
+    <a href="/storage/emulated/0/cheap stream/watch-page/blue-lock.html" class="bg-gray-900 rounded-xl overflow-hidden shadow hover:scale-105 transition duration-200">
+      <img src="/storage/emulated/0/cheap stream/pictures/BL.jpg" class="w-full h-44 object-cover">
+      <div class="p-2 text-sm text-yellow-300 font-semibold">Blue Lock</div>
+    </a>
+
+    <a href="/storage/emulated/0/cheap stream/watch-page/re-zero.html" class="bg-gray-900 rounded-xl overflow-hidden shadow hover:scale-105 transition duration-200">
+      <img src="/storage/emulated/0/cheap stream/pictures/RZ.jpg" class="w-full h-44 object-cover">
+      <div class="p-2 text-sm text-yellow-300 font-semibold">Re:Zero</div>
+    </a>
+
+    <a href="/storage/emulated/0/cheap stream/angel-watch-page/angel.html" class="bg-gray-900 rounded-xl overflow-hidden shadow hover:scale-105 transition duration-200">
+      <img src="/storage/emulated/0/cheap stream/pictures/TANDSMR.jpg" class="w-full h-44 object-cover">
+      <div class="p-2 text-sm text-yellow-300 font-semibold">The Angel Next Door</div>
+    </a>
+
+    <a href="/storage/emulated/0/cheap stream/watch-page/violet-evergarden.html" class="bg-gray-900 rounded-xl overflow-hidden shadow hover:scale-105 transition duration-200">
+      <img src="/storage/emulated/0/cheap stream/pictures/TEIS.jpg" class="w-full h-44 object-cover">
+      <div class="p-2 text-sm text-yellow-300 font-semibold">The Eminence in Shadow</div>
+    </a>
+
+    <a href="/storage/emulated/0/cheap stream/watch-page/mushoku-tensei.html" class="bg-gray-900 rounded-xl overflow-hidden shadow hover:scale-105 transition duration-200">
+      <img src="/storage/emulated/0/cheap stream/pictures/MT.jpg" class="w-full h-44 object-cover">
+      <div class="p-2 text-sm text-yellow-300 font-semibold">Mushoku Tensei</div>
+    </a>
+
+    <a href="/storage/emulated/0/cheap stream/watch-page/sao.html" class="bg-gray-900 rounded-xl overflow-hidden shadow hover:scale-105 transition duration-200">
+      <img src="/storage/emulated/0/cheap stream/pictures/SAO.jpg" class="w-full h-44 object-cover">
+      <div class="p-2 text-sm text-yellow-300 font-semibold">Sword Art Online</div>
+    </a>
+
+    <a href="/storage/emulated/0/cheap stream/weathering-watch-page/weathering.html" class="bg-gray-900 rounded-xl overflow-hidden shadow hover:scale-105 transition duration-200">
+      <img src="/storage/emulated/0/cheap stream/pictures/WWY.jpg" class="w-full h-44 object-cover">
+      <div class="p-2 text-sm text-yellow-300 font-semibold">Weathering With You</div>
+    </a>
+
+    <a href="/storage/emulated/0/cheap stream/watch-page/erased.html" class="bg-gray-900 rounded-xl overflow-hidden shadow hover:scale-105 transition duration-200">
+      <img src="/storage/emulated/0/cheap stream/pictures/ERASED.jpg" class="w-full h-44 object-cover">
+      <div class="p-2 text-sm text-yellow-300 font-semibold">Erased</div>
+    </a>
+
+    <a href="/storage/emulated/0/cheap stream/watch-page/a-silent-voice.html" class="bg-gray-900 rounded-xl overflow-hidden shadow hover:scale-105 transition duration-200">
+      <img src="/storage/emulated/0/cheap stream/pictures/ASV.jpg" class="w-full h-44 object-cover">
+      <div class="p-2 text-sm text-yellow-300 font-semibold">A Silent Voice</div>
+    </a>
+
+    <a href="/storage/emulated/0/cheap stream/watch-page/tonikaku-kawaii.html" class="bg-gray-900 rounded-xl overflow-hidden shadow hover:scale-105 transition duration-200">
+      <img src="/storage/emulated/0/cheap stream/pictures/DB.jpg" class="w-full h-44 object-cover">
+      <div class="p-2 text-sm text-yellow-300 font-semibold">Dragon Ball</div>
+    </a>
+
+  </div>
+</div>
+  <!-- Footer -->
+  <footer class="bg-black text-center text-yellow-300 py-4">
+    &copy; 2025 Cheap Stream. All rights reserved.
+  </footer>
+
+  <!-- JavaScript -->
+  <script>
+    const episodes = [
+      { video: "https://archive.org/download/ep1_20250705/ep1.mp4" },
+      { video: "https://archive.org/download/ep2_20250706/ep2.mp4" },
+      { video: "https://archive.org/download/ep3_20250706/ep3.mp4" },
+      { video: "https://archive.org/download/ep4_20250707/ep4.mp4" },
+      { video: "https://archive.org/download/ep5_20250707/ep5.mp4" },
+      { video: "https://archive.org/download/ep6_20250706/ep6.mp4" },
+      { video: "https://archive.org/download/ep7_20250706/ep7.mp4" },
+      { video: "https://archive.org/download/ep8_20250706/ep8.mp4" },
+      { video: "https://archive.org/download/ep9_20250706/ep9.mp4" },
+      { video: "https://archive.org/download/ep10_20250706/ep10.mp4" },
+      { video: "https://archive.org/download/ep11_20250706/ep11.mp4" },
+      { video: "https://archive.org/download/ep12_20250706/ep12.mp4" }
+    ];
+
+    const video = document.getElementById('videoPlayer');
+    const buttonsContainer = document.getElementById('episodeButtons');
+    const prevBtn = document.getElementById('prevBtn');
+    const nextBtn = document.getElementById('nextBtn');
+
+    let currentIndex = 0;
+
+    function playEpisode(index) {
+  currentIndex = index;
+  
+  // Update source first
+  const src = document.getElementById('videoSource');
+  src.src = episodes[index].video;
+  
+  // Then reload the player
+  video.load();
+  video.play();
+}
+
+    function updateButtons(activeIndex) {
+      document.querySelectorAll('.episode-btn').forEach((btn, i) => {
+        btn.classList.toggle('active', i === activeIndex);
+      });
+    }
+
+    // Add episode buttons
+    episodes.forEach((ep, index) => {
+      const btn = document.createElement('button');
+      btn.textContent = `Ep ${index + 1}`;
+      btn.className = "episode-btn";
+      btn.addEventListener('click', () => playEpisode(index));
+      buttonsContainer.appendChild(btn);
+    });
+
+    // Prev / Next button events
+    prevBtn.addEventListener('click', () => {
+      if (currentIndex > 0) playEpisode(currentIndex - 1);
+    });
+
+    nextBtn.addEventListener('click', () => {
+      if (currentIndex < episodes.length - 1) playEpisode(currentIndex + 1);
+    });
+
+    // Auto next episode
+    video.addEventListener('ended', () => {
+      if (currentIndex + 1 < episodes.length) {
+        playEpisode(currentIndex + 1);
+      }
+    });
+
+    // Play first episode on page load
+    playEpisode(0);
+  </script>
+</body>
+</html>
