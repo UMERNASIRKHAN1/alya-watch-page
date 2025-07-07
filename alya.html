@@ -61,12 +61,17 @@
     </div>
 
     <!-- Video Player -->
-    <div class="w-full aspect-video bg-black rounded-xl overflow-hidden shadow-md mb-4">
-     <video id="videoPlayer" controls crossorigin="anonymous" class="w-full h-full">
-  <source id="videoSource" src="" type="video/mp4" />
-  Your browser does not support the video tag.
-</video>
-    </div>
+<div class="w-full aspect-video bg-black rounded-xl overflow-hidden shadow-md mb-4">
+  <iframe
+    id="videoPlayer"
+    src="https://archive.org/embed/ep1_20250705"
+    width="100%"
+    height="100%"
+    frameborder="0"
+    allowfullscreen
+    class="w-full h-full rounded-xl">
+  </iframe>
+</div>
 
     <!-- Navigation Buttons -->
     <div class="flex justify-between items-center mb-6">
@@ -214,74 +219,59 @@
   </footer>
 
   <!-- JavaScript -->
-  <script>
-    const episodes = [
-      { video: "https://archive.org/download/ep1_20250705/ep1.mp4" },
-      { video: "https://archive.org/download/ep2_20250706/ep2.mp4" },
-      { video: "https://archive.org/download/ep3_20250706/ep3.mp4" },
-      { video: "https://archive.org/download/ep4_20250707/ep4.mp4" },
-      { video: "https://archive.org/download/ep5_20250707/ep5.mp4" },
-      { video: "https://archive.org/download/ep6_20250706/ep6.mp4" },
-      { video: "https://archive.org/download/ep7_20250706/ep7.mp4" },
-      { video: "https://archive.org/download/ep8_20250706/ep8.mp4" },
-      { video: "https://archive.org/download/ep9_20250706/ep9.mp4" },
-      { video: "https://archive.org/download/ep10_20250706/ep10.mp4" },
-      { video: "https://archive.org/download/ep11_20250706/ep11.mp4" },
-      { video: "https://archive.org/download/ep12_20250706/ep12.mp4" }
-    ];
+ <script>
+  const episodes = [
+    { id: "ep1_20250705" },
+    { id: "ep2_20250706" },
+    { id: "ep3_20250706" },
+    { id: "ep4_20250707" },
+    { id: "ep5_20250707" },
+    { id: "ep6_20250706" },
+    { id: "ep7_20250706" },
+    { id: "ep8_20250706" },
+    { id: "ep9_20250706" },
+    { id: "ep10_20250706" },
+    { id: "ep11_20250706" },
+    { id: "ep12_20250706" }
+  ];
 
-    const video = document.getElementById('videoPlayer');
-    const buttonsContainer = document.getElementById('episodeButtons');
-    const prevBtn = document.getElementById('prevBtn');
-    const nextBtn = document.getElementById('nextBtn');
+  const iframe = document.getElementById('videoPlayer');
+  const buttonsContainer = document.getElementById('episodeButtons');
+  const prevBtn = document.getElementById('prevBtn');
+  const nextBtn = document.getElementById('nextBtn');
 
-    let currentIndex = 0;
+  let currentIndex = 0;
 
-    function playEpisode(index) {
-  currentIndex = index;
-  
-  // Update source first
-  const src = document.getElementById('videoSource');
-  src.src = episodes[index].video;
-  
-  // Then reload the player
-  video.load();
-  video.play();
-}
+  function playEpisode(index) {
+    currentIndex = index;
+    iframe.src = `https://archive.org/embed/${episodes[index].id}`;
+    updateButtons(index);
+  }
 
-    function updateButtons(activeIndex) {
-      document.querySelectorAll('.episode-btn').forEach((btn, i) => {
-        btn.classList.toggle('active', i === activeIndex);
-      });
-    }
-
-    // Add episode buttons
-    episodes.forEach((ep, index) => {
-      const btn = document.createElement('button');
-      btn.textContent = `Ep ${index + 1}`;
-      btn.className = "episode-btn";
-      btn.addEventListener('click', () => playEpisode(index));
-      buttonsContainer.appendChild(btn);
+  function updateButtons(activeIndex) {
+    document.querySelectorAll('.episode-btn').forEach((btn, i) => {
+      btn.classList.toggle('active', i === activeIndex);
     });
+  }
 
-    // Prev / Next button events
-    prevBtn.addEventListener('click', () => {
-      if (currentIndex > 0) playEpisode(currentIndex - 1);
-    });
+  episodes.forEach((ep, index) => {
+    const btn = document.createElement('button');
+    btn.textContent = `Ep ${index + 1}`;
+    btn.className = "episode-btn";
+    btn.addEventListener('click', () => playEpisode(index));
+    buttonsContainer.appendChild(btn);
+  });
 
-    nextBtn.addEventListener('click', () => {
-      if (currentIndex < episodes.length - 1) playEpisode(currentIndex + 1);
-    });
+  prevBtn.addEventListener('click', () => {
+    if (currentIndex > 0) playEpisode(currentIndex - 1);
+  });
 
-    // Auto next episode
-    video.addEventListener('ended', () => {
-      if (currentIndex + 1 < episodes.length) {
-        playEpisode(currentIndex + 1);
-      }
-    });
+  nextBtn.addEventListener('click', () => {
+    if (currentIndex < episodes.length - 1) playEpisode(currentIndex + 1);
+  });
 
-    // Play first episode on page load
-    playEpisode(0);
-  </script>
+  // Load first episode on page load
+  playEpisode(0);
+</script>
 </body>
 </html>
